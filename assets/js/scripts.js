@@ -1,5 +1,6 @@
 // When the user clicks the button, open the modal
 $("#add_btn").click(function () {
+  $("#confirm_btn").show();
   $("#confirm_btn").attr("value", "save");
   $("#myModal").show();
 });
