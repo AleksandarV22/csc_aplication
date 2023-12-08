@@ -1,0 +1,16 @@
+{
+    "name": "kingsman/csc-application",
+    "description": "CSC-Application",
+    "autoload": {
+        "psr-4": {
+            "Kingsman\\CscApplication\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "smartsnake90",
+            "email": "smartsnake90@outlook.com"
+        }
+    ],
+    "require": {}
+}
