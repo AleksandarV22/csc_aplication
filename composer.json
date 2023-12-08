@@ -1,15 +1,14 @@
 {
-    "name": "kingsman/csc-application",
-    "description": "CSC-Application",
+    "name": "aleksandar/csc_aplication",
     "autoload": {
         "psr-4": {
-            "Kingsman\\CscApplication\\": "src/"
+            "Aleksandar\\CscAplication\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "smartsnake90",
-            "email": "smartsnake90@outlook.com"
+            "name": "Aleksandar",
+            "email": "aleksandar.vojinovic22@gmail.com"
         }
     ],
     "require": {}

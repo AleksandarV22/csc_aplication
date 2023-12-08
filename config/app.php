@@ -6,7 +6,7 @@ define('DB_USER', 'root');
 define('DB_PASSWORD', '');
 define('DB_DATABASE', 'csc');
 
-define('SITE_URL', 'http://localhost/csc-application/');
+define('SITE_URL', 'http://localhost/csc-aplication/');
 
 include_once 'DatabaseConnection.php';
 $db = new DatabaseConnection();
