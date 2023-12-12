@@ -46,6 +46,7 @@ function net_save(type) {
     net_id: id,
     type: type,
   };
+  console.log(data);
   $.ajax({
     type: "POST",
     url: "codes/codeNet.php",

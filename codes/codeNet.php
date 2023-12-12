@@ -10,7 +10,7 @@ if ($_POST['type'] == 'save_net') {
     $net_tso1 = mysqli_real_escape_string($db->conn, $_POST['net_tso1']);
     $net_tso2 = mysqli_real_escape_string($db->conn, $_POST['net_tso2']);
 
-    if (empty($net_name || $net_node1 || $net_node2 || $net_name || $net_ptdf || $net_tso1 || $net_tso2)) {
+    if (empty($net_name || $net_node1 || $net_node2 || $net_ptdf || $net_tso1 || $net_tso2)) {
         $res = [
             'status' => 422,
             'message' => 'All fields are mandatory'
@@ -19,7 +19,7 @@ if ($_POST['type'] == 'save_net') {
         return;
     }
 
-    $query = "INSERT INTO net_el (`node1`,`node2`,`name`,`name_ptdf`,`tso1`,`tso2`) VALUES ('$net_node1',{$net_node2},{$net_name},{$net_ptdf},{$net_tso1},{$net_tso2})";
+    $query = "INSERT INTO net_el (`node1`,`node2`,`name`,`name_ptdf`,`tso1`,`tso2`) VALUES ('$net_node1','$net_node2','$net_name','$net_ptdf','$net_tso1','$net_tso2')";
 
     $query_run = mysqli_query($db->conn, $query);
     if ($query_run) {
