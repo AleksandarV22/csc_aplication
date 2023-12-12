@@ -10,6 +10,6 @@ include 'includes/header.php';
 include 'includes/navbar.php';
 
 include 'database/csc_param.php';
-
+ 
 include 'includes/footer.php';
 ?>

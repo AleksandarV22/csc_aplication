@@ -9,9 +9,10 @@ include ('codes/authentication_code.php');
 include 'includes/header.php';
 include 'includes/navbar.php';
 
-include 'database/tso.php';
+
 include 'database/net_el.php';
 include 'database/ra.php';
+include 'database/tso.php';
 
 include 'includes/footer.php';
 ?>

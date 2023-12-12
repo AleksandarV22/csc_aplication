@@ -17,9 +17,9 @@ include ('includes/navbar.php');
                <?php if (isset($_SESSION['authenticated'])): ?>
 
                  <div class="d-flex flex-column">
-                    <a href="csc_calculation.php" class="btn btn-info btn-lg mb-2 px-3">ADMIN</a>
-                    <a href="csc_database.php" class="btn btn-primary btn-lg mb-2">DATABASE</a>
-                     <a href="csc_settings.php" class="btn btn-secondary btn-lg mb-2">CSC SETINGS</a>
+                    <a href="#" class="btn btn-info btn-lg mb-2 px-3">COST-SHARING CALCULATION</a>
+                    <a href="csc_database.php" class="btn btn-primary btn-lg mb-2">RAs, CNTs NAD xNECs DATABASE</a>
+                     <a href="csc_settings.php" class="btn btn-secondary btn-lg mb-2">CSC PARAMETERS SETTINGS</a>
                 </div>
                <?php endif; ?>            
             </div>
