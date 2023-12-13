@@ -35,7 +35,7 @@ function tso_save(type) {
       alertify.success("Success");
       //refresh
       $(document).ready(function () {
-        $("#myTableTso").load(location.href + " #myTableTso");
+        $("#panel").load("database/tso.php");
       });
     },
     error: function (xhr, status, error) {},
@@ -52,7 +52,7 @@ $("table").on("click", ".editTsoBtn", function () {
   $("#tso_confirm_btn").attr("value", "update");
   $("#tso_Modal").show();
 });
- 
+
 $("#tso_confirm_btn").click(function (e) {
   var type = $(this).attr("value");
   if (type == "save") {
@@ -75,7 +75,7 @@ function delete_tso(id) {
       alertify.error("TSO Deleted Successfully!");
       //refresh
       $(document).ready(function () {
-        $("#myTableTso").load(location.href + " #myTableTso");
+        $("#panel").load("database/tso.php");
       });
     },
     error: function (xhr, status, error) {},

@@ -1,8 +1,10 @@
 <?php
-// include '../config/DatabaseConnection.php';s
+include '../config/app.php';
+include '../controllers/AuthenticationController.php';
+$authenticated = new AuthenticationController($db);
+$authenticated->admin();
 
 ?>
-
 <style>
 /* The Modal (background) */
 .modal {

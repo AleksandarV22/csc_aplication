@@ -42,7 +42,7 @@ function ra_save(type) {
       alertify.success("Success");
       //refresh
       $(document).ready(function () {
-        $("#myTableRa").load(location.href + " #myTableRa");
+        $("#panel").load("database/ra.php");
       });
     },
     error: function (xhr, status, error) {},
@@ -91,7 +91,7 @@ function delete_ra(id) {
       alertify.error("Ra Deleted Successfully!");
       //refresh
       $(document).ready(function () {
-        $("#myTableRa").load(location.href + " #myTableRa");
+        $("#panel").load("database/ra.php");
       });
     },
     error: function (xhr, status, error) {},
