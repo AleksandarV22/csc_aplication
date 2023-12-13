@@ -6,7 +6,7 @@ $("#tso_add_btn").click(function () {
   $("#tso_Modal").show();
 });
 
-$("#tso_times").click(function () {
+$("#tso_hide").click(function () {
   $("#tso_Modal").hide();
 });
 $("#tso_close_btn").click(function () {
@@ -15,7 +15,6 @@ $("#tso_close_btn").click(function () {
 
 //ADD TSO
 //console.log($('#saveTso').length);
-
 function tso_save(type) {
   var id = $("#tso_name").attr("no");
   var name = $("#tso_name").val();
@@ -42,7 +41,6 @@ function tso_save(type) {
     error: function (xhr, status, error) {},
   });
 }
-
 //EDIT TSO
 $("table").on("click", ".editTsoBtn", function () {
   var name = $(this).parent().siblings(".name").text();
@@ -54,7 +52,7 @@ $("table").on("click", ".editTsoBtn", function () {
   $("#tso_confirm_btn").attr("value", "update");
   $("#tso_Modal").show();
 });
-
+ 
 $("#tso_confirm_btn").click(function (e) {
   var type = $(this).attr("value");
   if (type == "save") {
@@ -62,7 +60,7 @@ $("#tso_confirm_btn").click(function (e) {
   } else tso_save("update_tso");
 });
 
-$("table").on("click", ".deleteTsotBtn", function () {
+$("table").on("click", ".deleteTsoBtn", function () {
   var id = $(this).attr("value");
   delete_tso(id);
 });

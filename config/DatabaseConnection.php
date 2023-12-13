@@ -1,7 +1,7 @@
 <?php
 
 class DatabaseConnection {
-    //public $conn;
+    public $conn;
     public function __construct() {
         $this->conn = new mysqli('localhost','root','','csc');
         

@@ -46,6 +46,7 @@ function net_save(type) {
     net_id: id,
     type: type,
   };
+  console.log(data);
   $.ajax({
     type: "POST",
     url: "codes/codeNet.php",
@@ -72,7 +73,6 @@ $("table").on("click", ".editNetBtn", function () {
   var ptdf = $(this).parent().siblings(".net-name-ptdf").text();
   var tso1 = $(this).parent().siblings(".net-tso1").text();
   var tso2 = $(this).parent().siblings(".net-tso2").text();
-  var id = $(this).attr("value");
 
   $("#net_node1").attr("readonly", false);
   $("#net_node2").attr("readonly", false);
@@ -125,7 +125,6 @@ function delete_net(id) {
 }
 
 $("table").on("click", ".viewNetBtn", function () {
-  var name = $(this).parent().siblings(".name").text();
   var node1 = $(this).parent().siblings(".net-node1").text();
   var node2 = $(this).parent().siblings(".net-node2").text();
   var name = $(this).parent().siblings(".net-name").text();
