@@ -32,27 +32,111 @@
         <div id="errorMessage" class="alert alert-warning d-none"></div>
         <div class="mb-3">
             <label class="mb-3">RA.TSO</label>
-            <input type="text" class="form-control" id="csc_param_ra" no="">
+            <select class="form-control"  id="csc_param_ra">
+            <option value="">Select RA.TSO...</option>
+                <?php
+                $query = 'SELECT name FROM tso';
+                $query_run = mysqli_query($db->conn, $query);
+                if ($query_run) {
+                    while ($csc_param = mysqli_fetch_assoc($query_run)) {
+                        ?>
+                        
+                        <option value="<?php echo $csc_param['name'] ?>"><?php echo $csc_param['name'] ?></option>
+                 <?php
+                    }
+                }
+                ?>
+            </select>
         </div>
         <div class="mb-3">
             <label class="mb-3">CNT1.TSO</label>
-            <input type="text" class="form-control" id="csc_param_cnt1" no="">
+            <select class="form-control"  id="csc_param_cnt1">
+            <option value="">Select CNT1.TSO...</option>
+                <?php
+                $query = 'SELECT name FROM tso';
+                $query_run = mysqli_query($db->conn, $query);
+                if ($query_run) {
+                    while ($csc_param = mysqli_fetch_assoc($query_run)) {
+                        ?>
+                        
+                        <option value="<?php echo $csc_param['name'] ?>"><?php echo $csc_param['name'] ?></option>
+                 <?php
+                    }
+                }
+                ?>
+            </select>
         </div>
         <div class="mb-3">
             <label class="mb-3">CNT2.TSO</label>
-            <input type="text" class="form-control" id="csc_param_cnt2" no="">
+            <select class="form-control"  id="csc_param_cnt2">
+            <option value="">Select CNT2.TSO...</option>
+                <?php
+                $query = 'SELECT name FROM tso';
+                $query_run = mysqli_query($db->conn, $query);
+                if ($query_run) {
+                    while ($csc_param = mysqli_fetch_assoc($query_run)) {
+                        ?>
+                        
+                        <option value="<?php echo $csc_param['name'] ?>"><?php echo $csc_param['name'] ?></option>
+                 <?php
+                    }
+                }
+                ?>
+            </select>
         </div>
         <div class="mb-3">
             <label class="mb-3">xNEC1.TSO</label>
-            <input type="text" class="form-control" id="csc_param_xnec1" no="">
+            <select class="form-control"  id="csc_param_xnec1">
+            <option value="">Select xNEC1.TSO...</option>
+                <?php
+                $query = 'SELECT name FROM tso';
+                $query_run = mysqli_query($db->conn, $query);
+                if ($query_run) {
+                    while ($csc_param = mysqli_fetch_assoc($query_run)) {
+                        ?>
+                        
+                        <option value="<?php echo $csc_param['name'] ?>"><?php echo $csc_param['name'] ?></option>
+                 <?php
+                    }
+                }
+                ?>
+            </select>
         </div>
         <div class="mb-3">
             <label class="mb-3">xNEC2.TSO</label>
-            <input type="text" class="form-control" id="csc_param_xnec2" no="">
+            <select class="form-control"  id="csc_param_xnec2">
+            <option value="">Select xNEC2.TSO...</option>
+                <?php
+                $query = 'SELECT name FROM tso';
+                $query_run = mysqli_query($db->conn, $query);
+                if ($query_run) {
+                    while ($csc_param = mysqli_fetch_assoc($query_run)) {
+                        ?>
+                        
+                        <option value="<?php echo $csc_param['name'] ?>"><?php echo $csc_param['name'] ?></option>
+                 <?php
+                    }
+                }
+                ?>
+            </select>
         </div>
         <div class="mb-3">
             <label class="mb-3">Q</label>
-            <input type="text" class="form-control" id="csc_param_q" no="">
+            <select class="form-control"  id="csc_param_q">
+            <option value="">Select xNEC2.TSO...</option>
+                <?php
+                $query = 'SELECT DISTINCT q FROM csc_param';
+                $query_run = mysqli_query($db->conn, $query);
+                if ($query_run) {
+                    while ($csc_param = mysqli_fetch_assoc($query_run)) {
+                        ?>
+                        
+                        <option value="<?php echo $csc_param['q'] ?>"><?php echo $csc_param['q'] ?></option>
+                 <?php
+                    }
+                }
+                ?>
+            </select>
         </div>
         <div class="mb-3">
             <label class="mb-3">RSBA</label>
@@ -65,6 +149,10 @@
         <div class="mb-3">
             <label class="mb-3">BAME</label>
             <input type="text" class="form-control" id="csc_param_bame" no="">
+        </div>
+        <div class="mb-3">
+            <label class="mb-3">Sensitivity</label>
+            <input type="text" class="form-control" id="csc_param_sensitivity" no="">
         </div>
       </div>
       <div class="modal-footer">
@@ -100,6 +188,7 @@
                                 <th >RSBA</th>
                                 <th >RSME</th>
                                 <th >BAME</th>
+                                <th >Sensitivity</th>
                                 <th >Action</th>
                             </tr>
                         </thead>
@@ -122,6 +211,7 @@
                                             <td class="csc_param_rsba"><?php echo $csc_param['rsba']; ?></td>
                                             <td class="csc_param_rsme"><?php echo $csc_param['rsme']; ?></td>
                                             <td class="csc_param_bame"><?php echo $csc_param['bame']; ?></td>
+                                            <td class="csc_param_sensitivity"><?php echo $csc_param['sensitivity']; ?></td>
                                             <td>
                                                 <button type="button" value="<?php echo $csc_param['id']; ?>" class="viewCscParamBtn btn btn-info btn-sm">View</button>
                                                 <button type="button" value="<?php echo $csc_param['id']; ?>" class="editCscParamBtn btn btn-success btn-sm">Edit</button>
