@@ -1,5 +1,8 @@
 <?php
-// include '../config/DatabaseConnection.php';s
+include '../config/app.php';
+include '../controllers/AuthenticationController.php';
+$authenticated = new AuthenticationController($db);
+$authenticated->admin();
 
 ?>
 
@@ -66,7 +69,6 @@
                         </thead>
                         <tbody>
                             <?php
-                              // $db = new DatabaseConnection();
                               $query = 'SELECT * FROM tso';
                               $query_run = mysqli_query($db->conn, $query);
                               if ($query_run) {
