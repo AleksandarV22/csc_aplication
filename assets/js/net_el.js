@@ -57,7 +57,7 @@ function net_save(type) {
       alertify.success("Success");
       //refresh
       $(document).ready(function () {
-        $("#myTableNet").load(location.href + " #myTableNet");
+        $("#panel").load("database/net_el.php");
       });
     },
     error: function (xhr, status, error) {},
@@ -117,7 +117,7 @@ function delete_net(id) {
       alertify.error("NET_EL Deleted Successfully!");
       //refresh
       $(document).ready(function () {
-        $("#myTableNet").load(location.href + " #myTableNet");
+        $("#panel").load("database/net_el.php");
       });
     },
     error: function (xhr, status, error) {},

@@ -20,6 +20,10 @@ include 'includes/navbar.php';
         <button class="btn btn-primary mt-3 col-8">TSO</button>
     </div>
     <div class="col-8" id="panel">
+        <?php
+            include 'database/tso.php';
+        ?>
+    
     </div>
 </div>
 <script>
@@ -34,8 +38,9 @@ include 'includes/navbar.php';
             $("#panel").load("database/ra.php")
     })
 </script>
-
-
+<script src="assets/js/tso.js"></script>
+<script src="assets/js/net_el.js"></script>
+<script src="assets/js/ra.js"></script>
 <?php
 include 'includes/footer.php';
 ?>
