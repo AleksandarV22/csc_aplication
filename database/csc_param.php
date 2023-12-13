@@ -35,17 +35,17 @@
             <select class="form-control"  id="csc_param_ra">
             <option value="">Select RA.TSO...</option>
                 <?php
-                $query = 'SELECT name FROM tso';
-                $query_run = mysqli_query($db->conn, $query);
-                if ($query_run) {
-                    while ($csc_param = mysqli_fetch_assoc($query_run)) {
-                        ?>
+                    $query = 'SELECT name FROM tso';
+                    $query_run = mysqli_query($db->conn, $query);
+                    if ($query_run) {
+                        while ($csc_param = mysqli_fetch_assoc($query_run)) {
+                ?>
                         
                         <option value="<?php echo $csc_param['name'] ?>"><?php echo $csc_param['name'] ?></option>
                  <?php
+                        }
                     }
-                }
-                ?>
+                    ?>
             </select>
         </div>
         <div class="mb-3">
@@ -53,17 +53,17 @@
             <select class="form-control"  id="csc_param_cnt1">
             <option value="">Select CNT1.TSO...</option>
                 <?php
-                $query = 'SELECT name FROM tso';
-                $query_run = mysqli_query($db->conn, $query);
-                if ($query_run) {
-                    while ($csc_param = mysqli_fetch_assoc($query_run)) {
-                        ?>
+                    $query = 'SELECT name FROM tso';
+                    $query_run = mysqli_query($db->conn, $query);
+                    if ($query_run) {
+                        while ($csc_param = mysqli_fetch_assoc($query_run)) {
+                ?>
                         
                         <option value="<?php echo $csc_param['name'] ?>"><?php echo $csc_param['name'] ?></option>
                  <?php
+                        }
                     }
-                }
-                ?>
+                    ?>
             </select>
         </div>
         <div class="mb-3">
@@ -71,17 +71,17 @@
             <select class="form-control"  id="csc_param_cnt2">
             <option value="">Select CNT2.TSO...</option>
                 <?php
-                $query = 'SELECT name FROM tso';
-                $query_run = mysqli_query($db->conn, $query);
-                if ($query_run) {
-                    while ($csc_param = mysqli_fetch_assoc($query_run)) {
-                        ?>
+                    $query = 'SELECT name FROM tso';
+                    $query_run = mysqli_query($db->conn, $query);
+                    if ($query_run) {
+                        while ($csc_param = mysqli_fetch_assoc($query_run)) {
+                ?>
                         
                         <option value="<?php echo $csc_param['name'] ?>"><?php echo $csc_param['name'] ?></option>
                  <?php
+                        }
                     }
-                }
-                ?>
+                    ?>
             </select>
         </div>
         <div class="mb-3">
@@ -89,17 +89,17 @@
             <select class="form-control"  id="csc_param_xnec1">
             <option value="">Select xNEC1.TSO...</option>
                 <?php
-                $query = 'SELECT name FROM tso';
-                $query_run = mysqli_query($db->conn, $query);
-                if ($query_run) {
-                    while ($csc_param = mysqli_fetch_assoc($query_run)) {
-                        ?>
+                    $query = 'SELECT name FROM tso';
+                    $query_run = mysqli_query($db->conn, $query);
+                    if ($query_run) {
+                        while ($csc_param = mysqli_fetch_assoc($query_run)) {
+                ?>
                         
                         <option value="<?php echo $csc_param['name'] ?>"><?php echo $csc_param['name'] ?></option>
                  <?php
+                        }
                     }
-                }
-                ?>
+                    ?>
             </select>
         </div>
         <div class="mb-3">
@@ -107,17 +107,17 @@
             <select class="form-control"  id="csc_param_xnec2">
             <option value="">Select xNEC2.TSO...</option>
                 <?php
-                $query = 'SELECT name FROM tso';
-                $query_run = mysqli_query($db->conn, $query);
-                if ($query_run) {
-                    while ($csc_param = mysqli_fetch_assoc($query_run)) {
-                        ?>
+                    $query = 'SELECT name FROM tso';
+                    $query_run = mysqli_query($db->conn, $query);
+                    if ($query_run) {
+                        while ($csc_param = mysqli_fetch_assoc($query_run)) {
+                ?>
                         
                         <option value="<?php echo $csc_param['name'] ?>"><?php echo $csc_param['name'] ?></option>
                  <?php
+                        }
                     }
-                }
-                ?>
+                    ?>
             </select>
         </div>
         <div class="mb-3">
@@ -125,17 +125,17 @@
             <select class="form-control"  id="csc_param_q">
             <option value="">Select xNEC2.TSO...</option>
                 <?php
-                $query = 'SELECT DISTINCT q FROM csc_param';
-                $query_run = mysqli_query($db->conn, $query);
-                if ($query_run) {
-                    while ($csc_param = mysqli_fetch_assoc($query_run)) {
-                        ?>
+                    $query = 'SELECT DISTINCT q FROM csc_param';
+                    $query_run = mysqli_query($db->conn, $query);
+                    if ($query_run) {
+                        while ($csc_param = mysqli_fetch_assoc($query_run)) {
+                ?>
                         
                         <option value="<?php echo $csc_param['q'] ?>"><?php echo $csc_param['q'] ?></option>
                  <?php
+                        }
                     }
-                }
-                ?>
+                    ?>
             </select>
         </div>
         <div class="mb-3">
@@ -208,9 +208,9 @@
                                             <td class="csc_param_xnec1"><?php echo $csc_param['xnec1_tso']; ?></td>
                                             <td class="csc_param_xnec2"><?php echo $csc_param['xnec2_tso']; ?></td>
                                             <td class="csc_param_q"><?php echo $csc_param['q']; ?></td>
-                                            <td class="csc_param_rsba"><?php echo $csc_param['rsba']; ?></td>
-                                            <td class="csc_param_rsme"><?php echo $csc_param['rsme']; ?></td>
-                                            <td class="csc_param_bame"><?php echo $csc_param['bame']; ?></td>
+                                            <td class="csc_param_rsba"><?php echo $csc_param['RSBA']; ?></td>
+                                            <td class="csc_param_rsme"><?php echo $csc_param['RSME']; ?></td>
+                                            <td class="csc_param_bame"><?php echo $csc_param['BAME']; ?></td>
                                             <td class="csc_param_sensitivity"><?php echo $csc_param['sensitivity']; ?></td>
                                             <td>
                                                 <button type="button" value="<?php echo $csc_param['id']; ?>" class="viewCscParamBtn btn btn-info btn-sm">View</button>

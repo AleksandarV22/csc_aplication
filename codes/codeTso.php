@@ -2,7 +2,6 @@
 
 require '../config/app.php';
 // ADD TSO
-echo ($_POST['name']);
 if ($_POST['type'] == 'save_tso') {
     $name = mysqli_real_escape_string($db->conn, $_POST['name']);
 
@@ -68,7 +67,6 @@ if ($_POST['type'] == 'update_tso') {
     }
 }
 // DELETE TSO
-echo ($_POST['name']);
 if ($_POST['type'] == 'delete_tso') {
     $tso_id = mysqli_real_escape_string($db->conn, $_POST['tso_id']);
 

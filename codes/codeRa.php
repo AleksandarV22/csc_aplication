@@ -71,7 +71,6 @@ if ($_POST['type'] == 'update_ra') {
     }
 }
 // DELETE TSO
-echo ($_POST['name']);
 if ($_POST['type'] == 'delete_ra') {
     $ra_id = mysqli_real_escape_string($db->conn, $_POST['ra_id']);
 

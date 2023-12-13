@@ -11,6 +11,7 @@
  * @author Aleksandar
  */
 class LoginController {
+    public $conn;
     public function __construct(DatabaseConnection $db) {
         $this->conn = $db->conn;
     }

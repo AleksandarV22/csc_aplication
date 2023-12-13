@@ -36,10 +36,10 @@ function ra_save(type) {
     url: "codes/codeRa.php",
     data: data,
     success: function (res) {
-      //   res = JSON.parse(response);
+      var result = JSON.parse(res);
       $("#ra_Modal").hide();
       alertify.set("notifier", "position", "top-center");
-      alertify.success("Success");
+      alertify.success(result.message);
       //refresh
       $(document).ready(function () {
         $("#panel").load("database/ra.php");
@@ -87,8 +87,9 @@ function delete_ra(id) {
     url: "codes/codeRa.php",
     data: { ra_id: id, type: "delete_ra" },
     success: function (res) {
+      var result = JSON.parse(res);
       alertify.set("notifier", "position", "top-center");
-      alertify.error("Ra Deleted Successfully!");
+      alertify.error(result.message);
       //refresh
       $(document).ready(function () {
         $("#panel").load("database/ra.php");

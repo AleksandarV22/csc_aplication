@@ -52,9 +52,10 @@ function net_save(type) {
     url: "codes/codeNet.php",
     data: data,
     success: function (res) {
+      var result = JSON.parse(res);
       $("#net_Modal").hide();
       alertify.set("notifier", "position", "top-center");
-      alertify.success("Success");
+      alertify.success(result.message);
       //refresh
       $(document).ready(function () {
         $("#panel").load("database/net_el.php");
@@ -113,8 +114,9 @@ function delete_net(id) {
     url: "codes/codeNet.php",
     data: { net_id: id, type: "delete_net" },
     success: function (res) {
+      var result = JSON.parse(res);
       alertify.set("notifier", "position", "top-center");
-      alertify.error("NET_EL Deleted Successfully!");
+      alertify.error(result.message);
       //refresh
       $(document).ready(function () {
         $("#panel").load("database/net_el.php");

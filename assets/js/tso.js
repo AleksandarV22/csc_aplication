@@ -29,10 +29,11 @@ function tso_save(type) {
     url: "codes/codeTso.php",
     data: data,
     success: function (res) {
-      //   res = JSON.parse(response);
+      var result = JSON.parse(res);
+      console.log("result: ", result);
       $("#tso_Modal").hide();
       alertify.set("notifier", "position", "top-center");
-      alertify.success("Success");
+      alertify.success(result.message);
       //refresh
       $(document).ready(function () {
         $("#panel").load("database/tso.php");
@@ -71,8 +72,9 @@ function delete_tso(id) {
     url: "codes/codeTso.php",
     data: { tso_id: id, type: "delete_tso" },
     success: function (res) {
+      var result = JSON.parse(res);
       alertify.set("notifier", "position", "top-center");
-      alertify.error("TSO Deleted Successfully!");
+      alertify.error(result.message);
       //refresh
       $(document).ready(function () {
         $("#panel").load("database/tso.php");

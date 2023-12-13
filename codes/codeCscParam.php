@@ -2,14 +2,13 @@
 
 require '../config/app.php';
 // ADD TSO
-//echo ($_POST['name']);
 if ($_POST['type'] == 'save_csc_param') {
     $csc_ra = mysqli_real_escape_string($db->conn, $_POST['csc_ra']);
     $csc_cnt1 = mysqli_real_escape_string($db->conn, $_POST['csc_cnt1']);
     $csc_cnt2 = mysqli_real_escape_string($db->conn, $_POST['csc_cnt2']);
     $csc_xnec1 = mysqli_real_escape_string($db->conn, $_POST['csc_xnec1']);
     $csc_xnec2 = mysqli_real_escape_string($db->conn, $_POST['csc_xnec2']);
-    //var_dump($csc_xnec2);
+    // var_dump($csc_xnec2);
     $csc_q = mysqli_real_escape_string($db->conn, $_POST['csc_q']);
     $csc_rsba = mysqli_real_escape_string($db->conn, $_POST['csc_rsba']);
     $csc_rsme = mysqli_real_escape_string($db->conn, $_POST['csc_rsme']);
@@ -24,12 +23,11 @@ if ($_POST['type'] == 'save_csc_param') {
         echo json_encode($res);
         return false;
     }
-    if($csc_sens == NULL){
+    if ($csc_sens == NULL) {
         $query = "INSERT INTO csc_param (ra_tso,cnt1_tso,cnt2_tso,xnec1_tso,xnec2_tso,q,rsba,rsme,bame) VALUES ('$csc_ra','$csc_cnt1','$csc_cnt2','$csc_xnec1','$csc_xnec2','$csc_q','$csc_rsba','$csc_rsme','$csc_bame')";
-    }else{
+    } else {
         $query = "INSERT INTO csc_param (ra_tso,cnt1_tso,cnt2_tso,xnec1_tso,xnec2_tso,q,rsba,rsme,bame,sensitivity) VALUES ('$csc_ra','$csc_cnt1','$csc_cnt2','$csc_xnec1','$csc_xnec2','$csc_q','$csc_rsba','$csc_rsme','$csc_bame','$csc_sens')";
     }
-    
 
     $query_run = mysqli_query($db->conn, $query);
     if ($query_run) {
@@ -91,7 +89,6 @@ if ($_POST['type'] == 'update_csc_param') {
     }
 }
 // DELETE TSO
-//echo ($_POST['name']);
 if ($_POST['type'] == 'delete_csc_param') {
     $csc_id = mysqli_real_escape_string($db->conn, $_POST['csc_id']);
 
