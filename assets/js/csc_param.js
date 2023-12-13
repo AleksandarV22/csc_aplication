@@ -144,17 +144,63 @@ function delete_csc_param(id) {
   });
 }
 
-$("table").on("click", ".viewCscParamBtn", function () {
-  var ra = $(this).parent().siblings(".csc_param_ra").text();
-  var cnt1 = $(this).parent().siblings(".csc_param_cnt1").text();
-  var cnt2 = $(this).parent().siblings(".csc_param_cnt2").text();
-  var xnec1 = $(this).parent().siblings(".csc_param_xnec1").text();
-  var xnec2 = $(this).parent().siblings(".csc_param_xnec2").text();
-  var q = $(this).parent().siblings(".csc_param_q").text();
-  var rsba = $(this).parent().siblings(".csc_param_rsba").text();
-  var rsme = $(this).parent().siblings(".csc_param_rsme").text();
-  var bame = $(this).parent().siblings(".csc_param_bame").text();
-  var sens = $(this).parent().siblings(".csc_param_sensitivity").text();
+    var data = {
+      csc_id: id,
+      csc_ra: ra,
+      csc_cnt1: cnt1,
+      csc_cnt2: cnt2,
+      csc_xnec1: xnec1,
+      csc_xnec2: xnec2,
+      csc_q: q,
+      csc_rsba: rsba,
+      csc_rsme: rsme,
+      csc_bame: bame,
+      csc_sens: sens,
+      type: type,
+    };
+    //console.log(data);
+    $.ajax({
+      type: "POST",
+      url: "codes/codeCscParam.php",
+      data: data,
+      success: function (res) {
+        //   res = JSON.parse(response);
+        $("#csc_param_Modal").hide();
+        alertify.set("notifier", "position", "top-center");
+        alertify.success("Success Radi");
+        //refresh
+        $(document).ready(function () {
+          $("#myTableCscParam").load(location.href + " #myTableCscParam");
+        });
+      },
+      error: function (xhr, status, error) {},
+    });
+  }
+  //EDIT TSO
+  $("table").on("click", ".editCscParamBtn", function () {
+    var id = $(this).attr("value");
+    var ra = $(this).parent().siblings(".csc_param_ra").text();
+    var cnt1 = $(this).parent().siblings(".csc_param_cnt1").text();
+    var cnt2 = $(this).parent().siblings(".csc_param_cnt2").text();
+    var xnec1 = $(this).parent().siblings(".csc_param_xnec1").text();
+    var xnec2 = $(this).parent().siblings(".csc_param_xnec2").text();
+    var q = $(this).parent().siblings(".csc_param_q").text();
+    var rsba = $(this).parent().siblings(".csc_param_rsba").text();
+    var rsme = $(this).parent().siblings(".csc_param_rsme").text();
+    var bame = $(this).parent().siblings(".csc_param_bame").text();
+    var sens = $(this).parent().siblings(".csc_param_sensitivity").text();
+    
+   
+    /*$("#csc_param_ra").attr("readonly", false);
+    $("#csc_param_cnt1").attr("readonly", false);
+    $("#csc_param_cnt2").attr("readonly", false);
+    $("#csc_param_xnec1").attr("readonly", false);
+    $("#csc_param_xnec2").attr("readonly", false);
+    $("#csc_param_q").attr("readonly", false);
+    $("#csc_param_rsba").attr("readonly", false);
+    $("#csc_param_rsme").attr("readonly", false);
+    $("#csc_param_bame").attr("readonly", false);
+    $("#csc_param_sensitivity").attr("readonly", false);*/
 
   $("#csc_param_ra").attr("readonly", true);
   $("#csc_param_cnt1").attr("readonly", true);
