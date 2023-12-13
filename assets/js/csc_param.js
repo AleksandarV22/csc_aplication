@@ -86,7 +86,7 @@ $("#csc_param_add_btn").click(function () {
     var sens = $(this).parent().siblings(".csc_param_sensitivity").text();
     
    
-    $("#csc_param_ra").attr("readonly", false);
+    /*$("#csc_param_ra").attr("readonly", false);
     $("#csc_param_cnt1").attr("readonly", false);
     $("#csc_param_cnt2").attr("readonly", false);
     $("#csc_param_xnec1").attr("readonly", false);
@@ -95,7 +95,7 @@ $("#csc_param_add_btn").click(function () {
     $("#csc_param_rsba").attr("readonly", false);
     $("#csc_param_rsme").attr("readonly", false);
     $("#csc_param_bame").attr("readonly", false);
-    $("#csc_param_sensitivity").attr("readonly", false);
+    $("#csc_param_sensitivity").attr("readonly", false);*/
 
     $("#csc_param_ra").val(ra);
     $("#csc_param_cnt1").val(cnt1);

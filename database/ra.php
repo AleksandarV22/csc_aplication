@@ -1,8 +1,5 @@
 <?php
-include '../config/app.php';
-include '../controllers/AuthenticationController.php';
-$authenticated = new AuthenticationController($db);
-$authenticated->admin();
+// include '../config/DatabaseConnection.php';s
 
 ?>
 
