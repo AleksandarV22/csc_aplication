@@ -53,13 +53,20 @@ function net_save(type) {
     data: data,
     success: function (res) {
       var result = JSON.parse(res);
-      $("#net_Modal").hide();
-      alertify.set("notifier", "position", "top-center");
-      alertify.success(result.message);
-      //refresh
-      $(document).ready(function () {
-        $("#panel").load("database/net_el.php");
-      });
+      //console.log("result: ", result);
+      if(result.status  == 422){
+        $('#errorMessage').removeClass('d-none');
+        $('#errorMessage').text(result.message);
+      }else if(result.status  == 200){
+        $("#net_Modal").hide();
+        alertify.set("notifier", "position", "top-center");
+        alertify.success(result.message);
+        //refresh
+        $(document).ready(function () {
+          $("#panel").load("database/net_el.php");
+        });
+      }
+      
     },
     error: function (xhr, status, error) {},
   });

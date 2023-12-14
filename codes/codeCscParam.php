@@ -15,7 +15,7 @@ if ($_POST['type'] == 'save_csc_param') {
     $csc_bame = mysqli_real_escape_string($db->conn, $_POST['csc_bame']);
     $csc_sens = mysqli_real_escape_string($db->conn, $_POST['csc_sens']);
 
-    if (empty($csc_ra || $csc_cnt1 || $csc_cnt2 || $csc_xnec1 || $csc_xnec2 || $csc_q || $csc_rsba || $csc_rsme || $csc_bame || $csc_sens)) {
+    if (empty($csc_ra) || empty($csc_cnt1) || empty($csc_cnt2) || empty($csc_xnec1) || empty($csc_xnec2) || empty($csc_q)) {
         $res = [
             'status' => 422,
             'message' => 'All fields are mandatory'
@@ -60,7 +60,7 @@ if ($_POST['type'] == 'update_csc_param') {
     $csc_bame = mysqli_real_escape_string($db->conn, $_POST['csc_bame']);
     $csc_sens = mysqli_real_escape_string($db->conn, $_POST['csc_sens']);
 
-    if (empty($csc_ra || $csc_cnt1 || $csc_cnt2 || $csc_xnec1 || $csc_xnec2 || $csc_q || $csc_rsba || $csc_rsme || $csc_bame || $csc_sens)) {
+    if (empty($csc_ra) || empty($csc_cnt1) || empty($csc_cnt2) || empty($csc_xnec1) || empty($csc_xnec2) || empty($csc_q)) {
         $res = [
             'status' => 422,
             'message' => 'All fields are mandatory'

@@ -1,24 +1,10 @@
 <?php
 // include '../config/DatabaseConnection.php';s
-
+include '../config/app.php';
+include '../controllers/AuthenticationController.php';
+$authenticated = new AuthenticationController($db);
+$authenticated->admin();
 ?>
-
-<style>
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-</style>
 
 <!-- The Modal -->
 <div id="csc_param_Modal" class="modal">
@@ -169,7 +155,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="text-start">Cost-sharing calculation parameters settings database Details
-                        <button type="button" class="btn btn-primary float-end" id="csc_param_add_btn">
+                        <button type="button" class="btn btn-primary fw-bold float-end" id="csc_param_add_btn">
                           Add CSC parameter
                         </button>
                     </h4>
@@ -208,14 +194,14 @@
                                             <td class="csc_param_xnec1"><?php echo $csc_param['xnec1_tso']; ?></td>
                                             <td class="csc_param_xnec2"><?php echo $csc_param['xnec2_tso']; ?></td>
                                             <td class="csc_param_q"><?php echo $csc_param['q']; ?></td>
-                                            <td class="csc_param_rsba"><?php echo $csc_param['RSBA']; ?></td>
-                                            <td class="csc_param_rsme"><?php echo $csc_param['RSME']; ?></td>
-                                            <td class="csc_param_bame"><?php echo $csc_param['BAME']; ?></td>
+                                            <td class="csc_param_rsba"><?php echo $csc_param['rsba']; ?></td>
+                                            <td class="csc_param_rsme"><?php echo $csc_param['rsme']; ?></td>
+                                            <td class="csc_param_bame"><?php echo $csc_param['bame']; ?></td>
                                             <td class="csc_param_sensitivity"><?php echo $csc_param['sensitivity']; ?></td>
                                             <td>
-                                                <button type="button" value="<?php echo $csc_param['id']; ?>" class="viewCscParamBtn btn btn-info btn-sm">View</button>
-                                                <button type="button" value="<?php echo $csc_param['id']; ?>" class="editCscParamBtn btn btn-success btn-sm">Edit</button>
-                                                <button type="button" value="<?php echo $csc_param['id']; ?>" class="deleteCscParamBtn btn btn-danger btn-sm">Delete</button>
+                                                <button type="button" value="<?php echo $csc_param['id']; ?>" class="viewCscParamBtn btn btn-info fw-bold btn-sm">View</button>
+                                                <button type="button" value="<?php echo $csc_param['id']; ?>" class="editCscParamBtn btn btn-success fw-bold btn-sm">Edit</button>
+                                                <button type="button" value="<?php echo $csc_param['id']; ?>" class="deleteCscParamBtn btn btn-danger fw-bold btn-sm">Delete</button>
                                             </td>
                                         </tr>
                             <?php

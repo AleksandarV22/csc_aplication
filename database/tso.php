@@ -6,22 +6,6 @@ $authenticated->admin();
 
 ?>
 
-<style>
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-</style>
 
 <!-- The Modal -->
 <div id="tso_Modal" class="modal">
@@ -53,7 +37,7 @@ $authenticated->admin();
                 <div class="card-header">
                     <h4 class="text-start">TSO Details
                         
-                        <button type="button" class="btn btn-primary float-end" id="tso_add_btn">
+                        <button type="button" class="btn btn-primary fw-bold float-end" id="tso_add_btn">
                           Add TSO
                         </button>
                          </h4>
@@ -78,9 +62,9 @@ $authenticated->admin();
                                             <td class="id"><?php echo $tso['id']; ?></td>
                                             <td class="name"><?php echo $tso['name']; ?></td>
                                             <td>
-                                                <button type="button" value="<?php echo $tso['id']; ?>" class="viewTsoBtn btn btn-info btn-sm">View</button>
-                                                <button type="button" value="<?php echo $tso['id']; ?>" class="editTsoBtn btn btn-success btn-sm">Edit</button>
-                                                <button type="button" value="<?php echo $tso['id']; ?>" class="deleteTsoBtn btn btn-danger btn-sm">Delete</button>
+                                                <button type="button" value="<?php echo $tso['id']; ?>" class="viewTsoBtn btn btn-info fw-bold btn-sm">View</button>
+                                                <button type="button" value="<?php echo $tso['id']; ?>" class="editTsoBtn btn btn-success fw-bold btn-sm">Edit</button>
+                                                <button type="button" value="<?php echo $tso['id']; ?>" class="deleteTsoBtn btn btn-danger fw-bold btn-sm">Delete</button>
                                             </td>
                                         </tr>
                             <?php

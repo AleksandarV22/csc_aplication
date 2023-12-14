@@ -7,7 +7,7 @@ if ($_POST['type'] == 'save_ra') {
     $ra_tso = mysqli_real_escape_string($db->conn, $_POST['ra_tso']);
     $ra_name = mysqli_real_escape_string($db->conn, $_POST['ra_name']);
 
-    if (empty($ra_generator || $ra_tso || $ra_name)) {
+    if (empty($ra_generator) || empty($ra_tso) || empty($ra_name)) {
         $res = [
             'status' => 422,
             'message' => 'All fields are mandatory'
@@ -22,14 +22,14 @@ if ($_POST['type'] == 'save_ra') {
     if ($query_run) {
         $res = [
             'status' => 200,
-            'message' => 'Ra Created Successfully!'
+            'message' => 'RA Created Successfully!'
         ];
         echo json_encode($res);
         return false;
     } else {
         $res = [
             'status' => 500,
-            'message' => 'Ra Not Created'
+            'message' => 'RA Not Created'
         ];
         echo json_encode($res);
         return false;
@@ -42,7 +42,7 @@ if ($_POST['type'] == 'update_ra') {
     $ra_tso = mysqli_real_escape_string($db->conn, $_POST['ra_tso']);
     $ra_name = mysqli_real_escape_string($db->conn, $_POST['ra_name']);
 
-    if (empty($ra_generator || $ra_tso || $ra_name)) {
+    if (empty($ra_generator) || empty($ra_tso) || empty($ra_name)) {
         $res = [
             'status' => 422,
             'message' => 'All fields are mandatory'
@@ -51,20 +51,20 @@ if ($_POST['type'] == 'update_ra') {
         return;
     }
 
-    $query = "UPDATE ra SET generator='{$ra_generator}', tso='{$ra_tso}', name='{$ra_name}' WHERE id={$ra_id}";
+    $query = "UPDATE ra SET generator='$ra_generator', tso='$ra_tso', name='$ra_name' WHERE id='$ra_id'";
 
     $query_run = mysqli_query($db->conn, $query);
     if ($query_run) {
         $res = [
             'status' => 200,
-            'message' => 'Ra Updated Successfully!'
+            'message' => 'RA Updated Successfully!'
         ];
         echo json_encode($res);
         return false;
     } else {
         $res = [
             'status' => 500,
-            'message' => 'Ra Not Updated' . mysqli_error($con)  // Dodato rukovanje greškom
+            'message' => 'RA Not Updated' . mysqli_error($con)  // Dodato rukovanje greškom
         ];
         echo json_encode($res);
         return false;
@@ -74,20 +74,20 @@ if ($_POST['type'] == 'update_ra') {
 if ($_POST['type'] == 'delete_ra') {
     $ra_id = mysqli_real_escape_string($db->conn, $_POST['ra_id']);
 
-    $query = "DELETE FROM ra WHERE id={$ra_id}";
+    $query = "DELETE FROM ra WHERE id='$ra_id'";
 
     $query_run = mysqli_query($db->conn, $query);
     if ($query_run) {
         $res = [
             'status' => 200,
-            'message' => 'Ra Deleted Successfully!'
+            'message' => 'RA Deleted Successfully!'
         ];
         echo json_encode($res);
         return false;
     } else {
         $res = [
             'status' => 500,
-            'message' => 'Ra Not Deleted'
+            'message' => 'RA Not Deleted'
         ];
         echo json_encode($res);
         return false;

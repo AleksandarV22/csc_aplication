@@ -13,13 +13,12 @@ include 'includes/navbar.php';
 // include 'database/tso.php';
 ?>
 <div style="display:flex">
-    <div class="col-4" style="display:flex;align-items: center;flex-direction: column;padding-top:100px">
-        <button class="btn btn-primary mt-3 col-8" id="tso">TSO</button>
-        <button class="btn btn-primary mt-3 col-8" id="net_el">NET_EL</button>
-        <button class="btn btn-primary mt-3 col-8" id="ra">RA</button>
-        <button class="btn btn-primary mt-3 col-8">TSO</button>
+    <div class="col-md-2" style="display:flex;align-items: center;flex-direction: column;padding-top:100px">
+        <button class="btn btn-warning fw-bold fs-4 mt-3 col-8" id="tso">TSO</button>
+        <button class="btn btn-warning fw-bold fs-4 mt-3 col-8" id="net_el">NET_EL</button>
+        <button class="btn btn-warning fw-bold fs-4 mt-3 col-8" id="ra">RA</button>
     </div>
-    <div class="col-8" id="panel">
+    <div class="col-md-10" id="panel">
         <?php
             include 'database/tso.php';
         ?>

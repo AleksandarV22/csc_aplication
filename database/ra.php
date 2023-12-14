@@ -6,23 +6,6 @@ $authenticated->admin();
 
 ?>
 
-<style>
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-</style>
-
 <!-- The Modal -->
 <div id="ra_Modal" class="modal">
   <div class="modal-dialog">
@@ -39,7 +22,21 @@ $authenticated->admin();
         </div>
         <div class="mb-3">
             <label class="mb-3">TSO</label>
-            <input type="text" class="form-control" id="ra_tso" no="">
+            <select class="form-control"  id="ra_tso">
+            <option value="">Select TSO</option>
+                <?php
+                    $query = 'SELECT name FROM tso';
+                    $query_run = mysqli_query($db->conn, $query);
+                    if ($query_run) {
+                        while ($ra = mysqli_fetch_assoc($query_run)) {
+                ?>
+                        
+                        <option value="<?php echo $ra['name'] ?>"><?php echo $ra['name'] ?></option>
+                 <?php
+                        }
+                    }
+                    ?>
+            </select>
         </div>
         <div class="mb-3">
             <label class="mb-3">RA Name</label>
@@ -59,10 +56,10 @@ $authenticated->admin();
         <div class="col-md-10 text-center">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="text-start">RA Details
+                    <h4 class="text-start">Remedial Action Details
                         
-                        <button type="button" class="btn btn-primary float-end" id="ra_add_btn">
-                          Add Remidial action
+                        <button type="button" class="btn btn-primary fw-bold float-end" id="ra_add_btn">
+                          Add RA
                         </button>
                          </h4>
                 </div>
@@ -91,9 +88,9 @@ $authenticated->admin();
                                             <td class="tso"><?php echo $ra['tso']; ?></td>
                                             <td class="name"><?php echo $ra['name']; ?></td>
                                             <td>
-                                                <button type="button" value="<?php echo $ra['id']; ?>" class="viewRaBtn btn btn-info btn-sm">View</button>
-                                                <button type="button" value="<?php echo $ra['id']; ?>" class="editRaBtn btn btn-success btn-sm">Edit</button>
-                                                <button type="button" value="<?php echo $ra['id']; ?>" class="deleteRaBtn btn btn-danger btn-sm">Delete</button>
+                                                <button type="button" value="<?php echo $ra['id']; ?>" class="viewRaBtn btn fw-bold btn-info btn-sm">View</button>
+                                                <button type="button" value="<?php echo $ra['id']; ?>" class="editRaBtn btn fw-bold btn-success btn-sm">Edit</button>
+                                                <button type="button" value="<?php echo $ra['id']; ?>" class="deleteRaBtn btn fw-bold btn-danger btn-sm">Delete</button>
                                             </td>
                                         </tr>
                             <?php

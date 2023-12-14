@@ -5,22 +5,7 @@ $authenticated = new AuthenticationController($db);
 $authenticated->admin();
 
 ?>
-<style>
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-</style>
+
 
 <!-- The Modal -->
 <div id="net_Modal" class="modal">
@@ -50,11 +35,39 @@ $authenticated->admin();
         </div>
         <div class="mb-3">
             <label class="mb-3">TSO1</label>
-            <input type="text" class="form-control" id="net_tso1" no="">
+            <select class="form-control"  id="net_tso1">
+            <option value="">Select TSO1</option>
+                <?php
+                    $query = 'SELECT name FROM tso';
+                    $query_run = mysqli_query($db->conn, $query);
+                    if ($query_run) {
+                        while ($net_el = mysqli_fetch_assoc($query_run)) {
+                ?>
+                        
+                        <option value="<?php echo $net_el['name'] ?>"><?php echo $net_el['name'] ?></option>
+                 <?php
+                        }
+                    }
+                    ?>
+            </select>
         </div>
         <div class="mb-3">
             <label class="mb-3">TSO2</label>
-            <input type="text" class="form-control" id="net_tso2" no="">
+            <select class="form-control"  id="net_tso2">
+            <option value="">Select TSO2</option>
+                <?php
+                    $query = 'SELECT name FROM tso';
+                    $query_run = mysqli_query($db->conn, $query);
+                    if ($query_run) {
+                        while ($net_el = mysqli_fetch_assoc($query_run)) {
+                ?>
+                        
+                        <option value="<?php echo $net_el['name'] ?>"><?php echo $net_el['name'] ?></option>
+                 <?php
+                        }
+                    }
+                    ?>
+            </select>
         </div>
       </div>
       <div class="modal-footer">
@@ -70,8 +83,8 @@ $authenticated->admin();
         <div class="col-md-10 text-center">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="text-start">NET EL Details
-                        <button type="button" class="btn btn-primary float-end" id="net_add_btn">
+                    <h4 class="text-start">Network Element Details
+                        <button type="button" class="btn btn-primary fw-bold float-end" id="net_add_btn">
                           Add NET EL
                         </button>
                     </h4>
@@ -107,9 +120,9 @@ $authenticated->admin();
                                             <td class="net-tso1"><?php echo $net_el['tso1']; ?></td>
                                             <td class="net-tso2"><?php echo $net_el['tso2']; ?></td>
                                             <td>
-                                                <button type="button" value="<?php echo $net_el['id']; ?>" class="viewNetBtn btn btn-info btn-sm">View</button>
-                                                <button type="button" value="<?php echo $net_el['id']; ?>" class="editNetBtn btn btn-success btn-sm">Edit</button>
-                                                <button type="button" value="<?php echo $net_el['id']; ?>" class="deleteNetBtn btn btn-danger btn-sm">Delete</button>
+                                                <button type="button" value="<?php echo $net_el['id']; ?>" class="viewNetBtn btn btn-info fw-bold btn-sm">View</button>
+                                                <button type="button" value="<?php echo $net_el['id']; ?>" class="editNetBtn btn btn-success fw-bold btn-sm">Edit</button>
+                                                <button type="button" value="<?php echo $net_el['id']; ?>" class="deleteNetBtn btn btn-danger fw-bold btn-sm">Delete</button>
                                             </td>
                                         </tr>
                             <?php

@@ -30,14 +30,20 @@ function tso_save(type) {
     data: data,
     success: function (res) {
       var result = JSON.parse(res);
-      console.log("result: ", result);
-      $("#tso_Modal").hide();
-      alertify.set("notifier", "position", "top-center");
-      alertify.success(result.message);
-      //refresh
-      $(document).ready(function () {
-        $("#panel").load("database/tso.php");
-      });
+      //console.log("result: ", result);
+      if(result.status  == 422){
+        $('#errorMessage').removeClass('d-none');
+        $('#errorMessage').text(result.message);
+      }else if(result.status  == 200){
+        $("#tso_Modal").hide();
+        alertify.set("notifier", "position", "top-center");
+        alertify.success(result.message);
+        //refresh
+        $(document).ready(function () {
+          $("#panel").load("database/tso.php");
+        });
+      }
+      
     },
     error: function (xhr, status, error) {},
   });

@@ -53,14 +53,14 @@ if ($_POST['type'] == 'update_tso') {
     if ($query_run) {
         $res = [
             'status' => 200,
-            'message' => 'Student Updated Successfully!'
+            'message' => 'TSO Updated Successfully!'
         ];
         echo json_encode($res);
         return false;
     } else {
         $res = [
             'status' => 500,
-            'message' => 'Student Not Updated' . mysqli_error($con)  // Dodato rukovanje greškom
+            'message' => 'TSO Not Updated' . mysqli_error($con)  // Dodato rukovanje greškom
         ];
         echo json_encode($res);
         return false;
@@ -70,7 +70,7 @@ if ($_POST['type'] == 'update_tso') {
 if ($_POST['type'] == 'delete_tso') {
     $tso_id = mysqli_real_escape_string($db->conn, $_POST['tso_id']);
 
-    $query = "DELETE FROM tso WHERE id={$tso_id}";
+    $query = "DELETE FROM tso WHERE id='$tso_id'";
 
     $query_run = mysqli_query($db->conn, $query);
     if ($query_run) {
