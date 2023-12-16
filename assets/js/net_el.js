@@ -12,8 +12,8 @@ $("#net_add_btn").click(function () {
   $("#net_node2").attr("readonly", false);
   $("#net_name").attr("readonly", false);
   $("#net_ptdf").attr("readonly", false);
-  $("#net_tso1").attr("readonly", false);
-  $("#net_tso2").attr("readonly", false);
+  $("#net_tso1").attr("disabled", false);
+  $("#net_tso2").attr("disabled", false);
 
   $("#net_confirm_btn").attr("value", "save");
   $("#net_Modal").show();
@@ -54,10 +54,10 @@ function net_save(type) {
     success: function (res) {
       var result = JSON.parse(res);
       //console.log("result: ", result);
-      if(result.status  == 422){
-        $('#errorMessage').removeClass('d-none');
-        $('#errorMessage').text(result.message);
-      }else if(result.status  == 200){
+      if (result.status == 422) {
+        $("#errorMessage").removeClass("d-none");
+        $("#errorMessage").text(result.message);
+      } else if (result.status == 200) {
         $("#net_Modal").hide();
         alertify.set("notifier", "position", "top-center");
         alertify.success(result.message);
@@ -66,7 +66,6 @@ function net_save(type) {
           $("#panel").load("database/net_el.php");
         });
       }
-      
     },
     error: function (xhr, status, error) {},
   });
@@ -86,8 +85,8 @@ $("table").on("click", ".editNetBtn", function () {
   $("#net_node2").attr("readonly", false);
   $("#net_name").attr("readonly", false);
   $("#net_ptdf").attr("readonly", false);
-  $("#net_tso1").attr("readonly", false);
-  $("#net_tso2").attr("readonly", false);
+  $("#net_tso1").attr("disabled", false);
+  $("#net_tso2").attr("disabled", false);
 
   $("#net_node1").val(node1);
   $("#net_node2").val(node2);
@@ -145,8 +144,8 @@ $("table").on("click", ".viewNetBtn", function () {
   $("#net_node2").attr("readonly", true);
   $("#net_name").attr("readonly", true);
   $("#net_ptdf").attr("readonly", true);
-  $("#net_tso1").attr("readonly", true);
-  $("#net_tso2").attr("readonly", true);
+  $("#net_tso1").attr("disabled", true);
+  $("#net_tso2").attr("disabled", true);
 
   $("#net_node1").val(node1);
   $("#net_node2").val(node2);

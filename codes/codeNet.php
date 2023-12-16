@@ -1,5 +1,4 @@
 <?php
-
 require '../config/app.php';
 // ADD TSO
 if ($_POST['type'] == 'save_net') {
