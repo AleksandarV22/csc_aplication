@@ -115,21 +115,23 @@ $("table").on("click", ".deleteNetBtn", function () {
 });
 
 function delete_net(id) {
-  $.ajax({
-    type: "POST",
-    url: "codes/codeNet.php",
-    data: { net_id: id, type: "delete_net" },
-    success: function (res) {
-      var result = JSON.parse(res);
-      alertify.set("notifier", "position", "top-center");
-      alertify.error(result.message);
-      //refresh
-      $(document).ready(function () {
-        $("#panel").load("database/net_el.php");
-      });
-    },
-    error: function (xhr, status, error) {},
-  });
+    if(confirm('Are you sure you want to delete this data?')){
+    $.ajax({
+      type: "POST",
+      url: "codes/codeNet.php",
+      data: { net_id: id, type: "delete_net" },
+      success: function (res) {
+        var result = JSON.parse(res);
+        alertify.set("notifier", "position", "top-center");
+        alertify.error(result.message);
+        //refresh
+        $(document).ready(function () {
+          $("#panel").load("database/net_el.php");
+        });
+      },
+      error: function (xhr, status, error) {},
+    });
+  }
 }
 
 $("table").on("click", ".viewNetBtn", function () {

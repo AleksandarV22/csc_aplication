@@ -23,7 +23,7 @@ function tso_save(type) {
     tso_id: id,
     type: type,
   };
-  console.log(data);
+  //console.log(data);
   $.ajax({
     type: "POST",
     url: "codes/codeTso.php",
@@ -73,21 +73,23 @@ $("table").on("click", ".deleteTsoBtn", function () {
 });
 
 function delete_tso(id) {
-  $.ajax({
-    type: "POST",
-    url: "codes/codeTso.php",
-    data: { tso_id: id, type: "delete_tso" },
-    success: function (res) {
-      var result = JSON.parse(res);
-      alertify.set("notifier", "position", "top-center");
-      alertify.error(result.message);
-      //refresh
-      $(document).ready(function () {
-        $("#panel").load("database/tso.php");
-      });
-    },
-    error: function (xhr, status, error) {},
-  });
+    if(confirm('Are you sure you want to delete this data?')){
+    $.ajax({
+      type: "POST",
+      url: "codes/codeTso.php",
+      data: { tso_id: id, type: "delete_tso" },
+      success: function (res) {
+        var result = JSON.parse(res);
+        alertify.set("notifier", "position", "top-center");
+        alertify.error(result.message);
+        //refresh
+        $(document).ready(function () {
+          $("#panel").load("database/tso.php");
+        });
+      },
+      error: function (xhr, status, error) {},
+    });
+  }
 }
 
 $("table").on("click", ".viewTsoBtn", function () {
