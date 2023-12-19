@@ -1,9 +1,14 @@
 // When the user clicks the button, open the modal
 $("#ra_add_btn").click(function () {
   $("#ra_confirm_btn").show();
+  
   $("#ra_generator").val("");
   $("#ra_tso").val("");
   $("#ra_name").val("");
+
+  $("#ra_generator").attr("readonly", false);
+  $("#ra_tso").attr("disabled", false);
+  $("#ra_name").attr("readonly", false);
 
   $("#ra_confirm_btn").attr("value", "save");
   $("#ra_Modal").show();
@@ -64,7 +69,7 @@ $("table").on("click", ".editRaBtn", function () {
 
   $("#ra_confirm_btn").show();
   $("#ra_generator").attr("readonly", false);
-  $("#ra_tso").attr("readonly", false);
+  $("#ra_tso").attr("disabled", false);
   $("#ra_name").attr("readonly", false);
 
   $("#ra_generator").val(generator);
@@ -114,14 +119,16 @@ $("table").on("click", ".viewRaBtn", function () {
   var name = $(this).parent().siblings(".name").text();
   var id = $(this).attr("value");
 
+  
+
+  $("#ra_generator").attr("readonly", true);
+  $("#ra_tso").attr("disabled", true);
+  $("#ra_name").attr("readonly", true);
+  $("#ra_name").attr("no", id);
+
   $("#ra_generator").val(generator);
   $("#ra_tso").val(tso);
   $("#ra_name").val(name);
-
-  $("#ra_generator").attr("readonly", true);
-  $("#ra_tso").attr("readonly", true);
-  $("#ra_name").attr("readonly", true);
-  $("#ra_name").attr("no", id);
 
   $("#ra_confirm_btn").hide();
   $("#ra_Modal").show();

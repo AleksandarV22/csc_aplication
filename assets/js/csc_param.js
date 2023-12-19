@@ -12,6 +12,17 @@ $("#csc_param_add_btn").click(function () {
   $("#csc_param_bame").val("");
   $("#csc_param_sensitivity").val("");
 
+  $("#csc_param_ra").attr("disabled", false);
+  $("#csc_param_cnt1").attr("disabled", false);
+  $("#csc_param_cnt2").attr("disabled", false);
+  $("#csc_param_xnec1").attr("disabled", false);
+  $("#csc_param_xnec2").attr("disabled", false);
+  $("#csc_param_q").attr("disabled", false);
+  $("#csc_param_rsba").attr("readonly", false);
+  $("#csc_param_rsme").attr("readonly", false);
+  $("#csc_param_bame").attr("readonly", false);
+  $("#csc_param_sensitivity").attr("readonly", false);
+
   $("#csc_param_confirm_btn").attr("value", "save");
   $("#csc_param_Modal").show();
 });
@@ -92,12 +103,12 @@ $("table").on("click", ".editCscParamBtn", function () {
   var bame = $(this).parent().siblings(".csc_param_bame").text();
   var sens = $(this).parent().siblings(".csc_param_sensitivity").text();
 
-  $("#csc_param_ra").attr("readonly", false);
-  $("#csc_param_cnt1").attr("readonly", false);
-  $("#csc_param_cnt2").attr("readonly", false);
-  $("#csc_param_xnec1").attr("readonly", false);
-  $("#csc_param_xnec2").attr("readonly", false);
-  $("#csc_param_q").attr("readonly", false);
+  $("#csc_param_ra").attr("disabled", false);
+  $("#csc_param_cnt1").attr("disabled", false);
+  $("#csc_param_cnt2").attr("disabled", false);
+  $("#csc_param_xnec1").attr("disabled", false);
+  $("#csc_param_xnec2").attr("disabled", false);
+  $("#csc_param_q").attr("disabled", false);
   $("#csc_param_rsba").attr("readonly", false);
   $("#csc_param_rsme").attr("readonly", false);
   $("#csc_param_bame").attr("readonly", false);
@@ -166,16 +177,16 @@ $("table").on("click", ".viewCscParamBtn", function () {
   var bame = $(this).parent().siblings(".csc_param_bame").text();
   var sens = $(this).parent().siblings(".csc_param_sensitivity").text();
 
-  $("#csc_param_ra").attr("readonly", false);
-  $("#csc_param_cnt1").attr("readonly", false);
-  $("#csc_param_cnt2").attr("readonly", false);
-  $("#csc_param_xnec1").attr("readonly", false);
-  $("#csc_param_xnec2").attr("readonly", false);
-  $("#csc_param_q").attr("readonly", false);
-  $("#csc_param_rsba").attr("readonly", false);
-  $("#csc_param_rsme").attr("readonly", false);
-  $("#csc_param_bame").attr("readonly", false);
-  $("#csc_param_sensitivity").attr("readonly", false);
+  $("#csc_param_ra").attr("disabled", true);
+  $("#csc_param_cnt1").attr("disabled", true);
+  $("#csc_param_cnt2").attr("disabled", true);
+  $("#csc_param_xnec1").attr("disabled", true);
+  $("#csc_param_xnec2").attr("disabled", true);
+  $("#csc_param_q").attr("disabled", true);
+  $("#csc_param_rsba").attr("readonly", true);
+  $("#csc_param_rsme").attr("readonly", true);
+  $("#csc_param_bame").attr("readonly", true);
+  $("#csc_param_sensitivity").attr("readonly", true);
 
   $("#csc_param_ra").val(ra);
   $("#csc_param_cnt1").val(cnt1);
